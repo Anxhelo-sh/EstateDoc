@@ -22,7 +22,7 @@
             <form action="{{ route('properties.index') }}" method="GET">
                 <div class="row field">
                     <div class="col-4 ">
-                        <input type="date" class="form-control input-sm" id="start_date" name="start_date" value="{{Request::get("start_date")}}">
+                        <input type="date" class="form-control input-sm" id="start_date" name="start_date"  value="{{Request::get("start_date")}}">
                     </div>
                     <div class="col-4 ">
 
@@ -77,14 +77,16 @@
                                 <div>
                                     {{ $property->street_adress }}, {{ $property->city }}, {{ $property->state }}
                                 </div>
-                                <div>
-                                    {{ str_replace('_',' ',$property->type) }} for {{ str_replace('_',' ',$property->category) }}
-                                </div>
+
                                 <div >
                                     {{ $property->number_of_rooms }} rooms, {{ $property->number_of_bathrooms }} bathrooms
                                     & {{ $property->has_garage }} parking spots
                                 </div>
-                                <div class="mt-5">
+                                <div >
+                                    Start Date: {{ $property->start_date }}  <br>End Date : {{ $property->end_date }}
+
+                                </div>
+                                <div >
                                     <b>${{ $property->price }} per month</b>
 
                                 </div>

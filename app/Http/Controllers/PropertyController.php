@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Property;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
+use App\Models\User;
 use GuzzleHttp\Psr7\Query;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -48,7 +49,7 @@ class PropertyController extends Controller
 
 
         //
-        return view('properties.index', ['properties' => $properties->paginate(5)]);
+        return view('properties.index', ['properties' => $properties->paginate(10)]);
 
     }
 
@@ -59,7 +60,6 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        //
         return view('properties.create');
 
     }

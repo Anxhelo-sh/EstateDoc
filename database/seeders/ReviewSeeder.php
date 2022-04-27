@@ -3,9 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Property;
+use App\Models\Review;
 use Illuminate\Database\Seeder;
 
-class PropertySeeder extends Seeder
+class ReviewSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +16,7 @@ class PropertySeeder extends Seeder
     public function run()
     {
         //
-        Property::factory(20)->create() ;
+        Review::factory(100)->create() ;
+
     }
 }

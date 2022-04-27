@@ -27,11 +27,15 @@
                                     {{ $property->street_adress }}, {{ $property->city }}, {{ $property->state }}
                                 </div>
                                 <div>
-                                    {{ str_replace('_',' ',$property->type) }} for {{ str_replace('_',' ',$property->category) }}
+                                    {{ str_replace('_',' ',$property->type) }} , {{ str_replace('_',' ',$property->category) }}
                                 </div>
                                 <div >
                                     {{ $property->number_of_rooms }} rooms, {{ $property->number_of_bathrooms }} bathrooms
                                     & {{ $property->has_garage }} parking spots
+                                </div>
+                                <div >
+                                    Start Date: {{ $property->start_date }}  <br>End Date : {{ $property->end_date }}
+
                                 </div>
                                 <div class="mt-5">
                                     <b>${{ $property->price }} per month</b>

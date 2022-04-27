@@ -13,14 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[\App\Http\Controllers\PropertyController::class, 'index']);
+Route::get('/home', [\App\Http\Controllers\PropertyController::class, 'index'])->name('home');
 
 Auth::routes();
 Route::group(['middleware'=>['auth']],function() {
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
     Route::post('properties', [\App\Http\Controllers\PropertyController::class, 'store'])->name('properties.store');
     Route::get('properties/create', [\App\Http\Controllers\PropertyController::class, 'create'])->name('properties.create');
     Route::put('properties/{property}', [\App\Http\Controllers\PropertyController::class, 'update'])->name('properties.update');
