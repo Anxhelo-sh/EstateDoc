@@ -48,6 +48,10 @@
                                     <button  class="btn btn-danger m-1">Delete</button>
                                 </form>
                             </div>
+                            <div >
+                                <a class="btn btn-primary m-1" href="/reservations/create/{{$property->id}}}">Book Now </a>
+
+                            </div>
 
                         </div>
                     </div>

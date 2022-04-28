@@ -39,6 +39,7 @@ class StorePropertyRequest extends FormRequest
             'has_furnitures' => [ Rule::in([1, 0])] ,
             'status' => [ Rule::in([1, 0])] ,
             'image' => ['required' ,'mimes:jpeg,png'] ,
+
         ];
     }
 }

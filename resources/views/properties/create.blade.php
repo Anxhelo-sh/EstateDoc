@@ -248,7 +248,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <input type="date" id="start_date" name="start_date"  value="{{ old('start_date') }}"  >
+                        <input type="date" class="form-control input-sm" id="start_date" name="start_date" value="{{ old('start_date') }}">
                         <p style="color: red">
                             @error('start_date')
                             {{$message}}
@@ -264,7 +264,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <input type="date" id="end_date" name="end_date"  value="{{ old('end_date') }}"  >
+                        <input type="date" class="form-control input-sm" id="end_date" name="end_date" value="{{ old('end_date') }}">
                         <p style="color: red">
                             @error('end_date')
                             {{$message}}
@@ -295,7 +295,7 @@
 
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-8 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">{{ __('Create') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('Create Property') }}</button>
                     </div>
                 </div>
             </div>

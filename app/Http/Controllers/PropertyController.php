@@ -49,7 +49,7 @@ class PropertyController extends Controller
 
 
         //
-        return view('properties.index', ['properties' => $properties->paginate(10)]);
+        return view('properties.index', ['properties' => $properties->paginate(10)->withQueryString()]);
 
     }
 
@@ -186,6 +186,6 @@ class PropertyController extends Controller
     public function getPropertyByUser() {
 
 
-        return view('properties.properties' , ['properties'=>request()->user()->properties()->paginate(5)]) ;
+        return view('properties.properties' , ['properties'=>request()->user()->properties()->paginate(5)->withQueryString()]) ;
     }
 }

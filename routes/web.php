@@ -26,6 +26,9 @@ Route::group(['middleware'=>['auth']],function() {
     Route::delete('properties/{property}', [\App\Http\Controllers\PropertyController::class, 'destroy'])->name('properties.destroy');
     Route::get('properties/{property}/edit', [\App\Http\Controllers\PropertyController::class, 'edit'])->name('properties.edit');
     Route::get('user/properties', [\App\Http\Controllers\PropertyController::class, 'getPropertyByUser'])->name('properties.user');
+    Route::get('reservations/create/{property}', [\App\Http\Controllers\ReservationController::class, 'create'])->name('reservations.create');
+    Route::post('reservations/store', [\App\Http\Controllers\ReservationController::class, 'store'])->name('reservations.store');
+
 
 }) ;
 Route::get('properties', [\App\Http\Controllers\PropertyController::class, 'index'])->name('properties.index');

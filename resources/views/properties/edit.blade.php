@@ -5,7 +5,7 @@
         <form action="{{ route('properties.update',['property'=>$property->id]) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
-            <div class="card-header">{{ __('Create Property') }}</div>
+            <div class="card-header">{{ __('Update Property') }}</div>
 
             <div class="card-body">
                 <div class="row justify-content-center mb-3">
