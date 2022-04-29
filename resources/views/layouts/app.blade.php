@@ -39,11 +39,16 @@
 
                         </li>
                         <li>
-                            <a class="nav-link" href="{{ route('properties.create') }}">{{ __('Create Property') }}</a>
+                            @can('host_user')
 
+                            <a class="nav-link" href="{{ route('properties.create') }}">{{ __('Create Property') }}</a>
+                                @endcan
                         </li>
                         <li>
-                            <a class="nav-link" href="{{ route('properties.user') }}">{{ __('My Properties') }}</a>
+                            @can('host_user')
+                                <a class="nav-link" href="{{ route('properties.user') }}">{{ __('My Properties') }}</a>
+
+                            @endcan
 
                         </li>
                     </ul>

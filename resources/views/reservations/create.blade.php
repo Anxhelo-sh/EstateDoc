@@ -119,15 +119,5 @@
             </div>
         </form>
 
-
-
-
-
-
-
-
-
-
-
     </div>
 @endsection

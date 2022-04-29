@@ -41,10 +41,7 @@
                                     <b>${{ $property->price }} per month</b>
 
                                 </div>
-                                <div >
-                                    <a class="btn btn-primary m-1" href="/reservations/create/{{$property->id}}}">Book Now </a>
 
-                                </div>
 
 
 

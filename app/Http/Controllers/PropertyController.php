@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use function PHPUnit\Framework\isEmpty;
 use function PHPUnit\Framework\isNull;
+use Illuminate\Support\Facades\Gate;
 
 
 class PropertyController extends Controller
@@ -126,7 +127,7 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
-        //
+
         return view('properties.edit', ['property' => $property]);
 
     }
@@ -156,11 +157,13 @@ class PropertyController extends Controller
         $property->state = $request->state ;
         $property->number_of_rooms = $request->number_of_rooms ;
         $property->number_of_bathrooms = $request->number_of_bathrooms ;
-        $property->has_garden = $request->has_garden ;
-        $property->has_pool = $request->has_pool ;
-        $property->has_garage = $request->has_garage ;
-        $property->has_furnitures = $request->has_furnitures ;
-        $property->status = $request->status ;
+        $property->has_garden =!isset($request->has_garden) ? 0 : 1 ;
+
+        $property->has_pool = !isset($request->has_pool) ? 0 : 1 ;
+
+        $property->has_garage = !isset($request->has_garage) ? 0 : 1 ;
+        $property->has_furnitures =  !isset($request->has_furnitures) ? 0 : 1 ;
+        $property->status =  !isset($request->status) ? 0 : 1 ;
         $property->start_date = $request->start_date ;
         $property->end_date = $request->end_date ;
         $property->image = $image_name ;

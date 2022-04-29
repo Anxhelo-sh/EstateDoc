@@ -8,7 +8,7 @@ use App\Models\Reservation;
 use App\Http\Requests\StoreReservationRequest;
 use App\Http\Requests\UpdateReservationRequest;
 use GuzzleHttp\Psr7\Request;
-
+use Illuminate\Support\Facades\Gate;
 class ReservationController extends Controller
 {
     /**
@@ -29,8 +29,11 @@ class ReservationController extends Controller
     public function create(Property $property)
     {
 
-        //
+        if(Gate::allows("host_user")){
+            abort(403) ;
+        }
         return view('reservations.create', ['property' => $property]);
+
 
     }
 

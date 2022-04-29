@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Property;
+use App\Models\Reservation;
 use App\Models\Review;
 use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
@@ -23,9 +25,11 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Property $property)
     {
         //
+        return view('reviews.create', ['property' => $property]);
+
     }
 
     /**
@@ -37,6 +41,20 @@ class ReviewController extends Controller
     public function store(StoreReviewRequest $request)
     {
         //
+
+        Review::create(
+            [
+
+                'message'=>$request->message ,
+                'review_score'=>$request->review_score ,
+                'user_id' =>  $request->user()->id ,
+                'property_id' => $request->property,
+
+            ]
+        );
+
+        return redirect()->route('properties.show',['property'=>$request->property]);
+
     }
 
     /**

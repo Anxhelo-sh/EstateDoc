@@ -16,13 +16,13 @@
                     <div class="col-md-6">
 
 
-                        <select class="form-select" id="category" name="category" value ="{{$property->category}}" aria-label="Property category">
+                        <select class="form-select" id="category" name="category"  aria-label="Property category">
                             <option disabled selected >Choose a category for the property</option>
-                            <option value="house" {{ old('category') == 'house' ? 'selected' : '' }}>House</option>
-                            <option value="appartment" {{ old('category') == 'appartment' ? 'selected' : '' }}>Appartment</option>
-                            <option value="storage_unit" {{ old('category') == 'storage_unit' ? 'selected' : '' }}>Storage unit</option>
-                            <option value="office" {{ old('category') == 'office' ? 'selected' : '' }}>Office</option>
-                            <option value="land" {{ old('category') == 'land' ? 'selected' : '' }}>Land</option>
+                            <option value="house" {{ $property->category == 'house' ? 'selected' : '' }}>House</option>
+                            <option value="appartment" {{ $property->category == 'appartment' ? 'selected' : '' }}>Appartment</option>
+                            <option value="storage_unit" {{ $property->category == 'storage_unit' ? 'selected' : '' }}>Storage unit</option>
+                            <option value="office" {{ $property->category == 'office' ? 'selected' : '' }}>Office</option>
+                            <option value="land" {{ $property->category == 'land' ? 'selected' : '' }}>Land</option>
                         </select>
                         <p style="color: red">
                             @error('category')
@@ -39,13 +39,13 @@
                     </div>
                     <div class="col-md-6">
 
-                        <select class="form-select" id="type" name="type" value ="{{$property->type}}"  aria-label="Property Type">
+                        <select class="form-select" id="type" name="type"  aria-label="Property Type">
                             <option disabled selected>Choose a type for the property</option>
-                            <option value="single_family_home" {{ old('type') == 'single_family_home' ? 'selected' : '' }} >Single-Family Home</option>
-                            <option value="townhome" {{ old('type') == 'townhome' ? 'selected' : '' }}>Townhome</option>
-                            <option value="condos" {{ old('type') == 'condos' ? 'selected' : '' }}> Condos</option>
-                            <option value="victorian" {{ old('type') == 'victorian' ? 'selected' : '' }}>Victorian</option>
-                            <option value="other" {{ old('type') == 'other' ? 'selected' : '' }}>Other</option>
+                            <option value="single_family_home" {{ $property->type == 'single_family_home' ? 'selected' : '' }} >Single-Family Home</option>
+                            <option value="townhome" {{ $property->type == 'townhome' ? 'selected' : '' }}>Townhome</option>
+                            <option value="condos" {{ $property->type == 'condos' ? 'selected' : '' }}> Condos</option>
+                            <option value="victorian" {{ $property->type == 'victorian' ? 'selected' : '' }}>Victorian</option>
+                            <option value="other" {{ $property->type == 'other' ? 'selected' : '' }}>Other</option>
                         </select>
                         <p style="color: red">
                             @error('type')
@@ -123,15 +123,15 @@
                     </div>
                     <div class="col-md-6">
 
-                        <select class="form-select" id="number_of_rooms" name="number_of_rooms" value ="{{$property->number_of_rooms}}" aria-label="Choose number of rooms">
+                        <select class="form-select" id="number_of_rooms" name="number_of_rooms"  aria-label="Choose number of rooms">
                             <option selected>{{ __('Select number of rooms') }}</option>
-                            <option value="1" {{ old('number_of_rooms') == 1 ? 'selected' : '' }}>1</option>
-                            <option value="2"  {{ old('number_of_rooms') == 2 ? 'selected' : '' }}>2</option>
-                            <option value="3"  {{ old('number_of_rooms') == 3 ? 'selected' : '' }}>3</option>
-                            <option value="4"  {{ old('number_of_rooms') == 4 ? 'selected' : '' }}>4</option>
-                            <option value="5"  {{ old('number_of_rooms') == 5 ? 'selected' : '' }}>5</option>
-                            <option value="6"  {{ old('number_of_rooms') == 6 ? 'selected' : '' }}>6</option>
-                            <option value="7"  {{ old('number_of_rooms') == 7 ? 'selected' : '' }}>7</option>
+                            <option value="1" {{ $property->number_of_rooms == 1 ? 'selected' : '' }}>1</option>
+                            <option value="2"  {{ $property->number_of_rooms== 2 ? 'selected' : '' }}>2</option>
+                            <option value="3"  {{ $property->number_of_rooms == 3 ? 'selected' : '' }}>3</option>
+                            <option value="4"  {{ $property->number_of_rooms == 4 ? 'selected' : '' }}>4</option>
+                            <option value="5"  {{ $property->number_of_rooms == 5 ? 'selected' : '' }}>5</option>
+                            <option value="6"  {{ $property->number_of_rooms == 6 ? 'selected' : '' }}>6</option>
+                            <option value="7"  {{ $property->number_of_rooms == 7 ? 'selected' : '' }}>7</option>
                         </select>
                         <p style="color: red">
                             @error('number_of_rooms')
@@ -148,14 +148,14 @@
                     </div>
                     <div class="col-md-6">
 
-                        <select class="form-select" id="number_of_bathrooms" name="number_of_bathrooms" value ="{{$property->number_of_bathrooms}}" aria-label="Choose number of bathrooms">
+                        <select class="form-select" id="number_of_bathrooms" name="number_of_bathrooms" aria-label="Choose number of bathrooms">
                             <option selected>{{ __('Select number of bathrooms') }}</option>
-                            <option value="1"  {{ old('number_of_bathrooms') == 1 ? 'selected' : '' }}>1</option>
-                            <option value="2" {{ old('number_of_bathrooms') == 2 ? 'selected' : '' }}>2</option>
-                            <option value="3" {{ old('number_of_bathrooms') == 3 ? 'selected' : '' }}>3</option>
-                            <option value="4" {{ old('number_of_bathrooms') == 4 ? 'selected' : '' }}>4</option>
-                            <option value="5" {{ old('number_of_bathrooms') == 5 ? 'selected' : '' }}>5</option>
-                            <option value="6" {{ old('number_of_bathrooms') == 6 ? 'selected' : '' }}>6</option>
+                            <option value="1"  {{ $property->number_of_bathrooms == 1 ? 'selected' : '' }}>1</option>
+                            <option value="2" {{ $property->number_of_bathrooms == 2 ? 'selected' : '' }}>2</option>
+                            <option value="3" {{ $property->number_of_bathrooms == 3 ? 'selected' : '' }}>3</option>
+                            <option value="4" {{ $property->number_of_bathrooms == 4 ? 'selected' : '' }}>4</option>
+                            <option value="5" {{ $property->number_of_bathrooms == 5 ? 'selected' : '' }}>5</option>
+                            <option value="6" {{ $property->number_of_bathrooms == 6 ? 'selected' : '' }}>6</option>
                         </select>
                         <p style="color: red">
                             @error('number_of_bathrooms')
@@ -172,7 +172,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <input type="checkbox" id="has_garden" name="has_garden" value="1" {{old('has_garden') ==1 ? 'checked' : ''}}  >
+                        <input type="checkbox" id="has_garden" name="has_garden" value="1" {{$property->has_garden ==1 ? 'checked' : ''}}  >
                         <p style="color: red">
                             @error('has_garden')
                             {{$message}}
@@ -188,7 +188,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <input type="checkbox" id="has_pool" name="has_pool" value="1" {{old('has_pool') ==1 ? 'checked' : ''}}  >
+                        <input type="checkbox" id="has_pool" name="has_pool" value="1" {{$property->has_pool ==1 ? 'checked' : ''}}  >
                         <p style="color: red">
                             @error('has_pool')
                             {{$message}}
@@ -203,7 +203,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <input type="checkbox" id="has_garage" name="has_garage" value="1" {{old('has_garage') ==1 ? 'checked' : ''}} >
+                        <input type="checkbox" id="has_garage" name="has_garage" value="1" {{$property->has_garage ==1 ? 'checked' : ''}} >
                         <p style="color: red">
                             @error('has_garage')
                             {{$message}}
@@ -219,7 +219,7 @@
                     </div>
                     <div class="col-md-6">
 
-                        <input type="checkbox" id="has_furnitures" name="has_furnitures"  value="1" {{old('has_furnitures') ==1 ? 'checked' : ''}}  >
+                        <input type="checkbox" id="has_furnitures" name="has_furnitures"  value="1" {{$property->has_furnitures ==1 ? 'checked' : ''}}  >
                         <p style="color: red">
                             @error('has_furnitures')
                             {{$message}}
@@ -234,9 +234,40 @@
                     </div>
                     <div class="col-md-6">
 
-                        <input type="checkbox" id="status" name="status"  value="1" {{old('status') ==1 ? 'checked' : ''}}  >
+                        <input type="checkbox" id="status" name="status"  value="1" {{$property->status ==1 ? 'checked' : ''}}  >
                         <p style="color: red">
                             @error('status')
+                            {{$message}}
+                            @enderror
+                        </p>
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-3">
+                    <div class="col-md-2">
+
+                        <label for="status">{{ __('Start Date') }}</label>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="date" class="form-control input-sm" id="start_date" name="start_date" value ="{{$property->start_date}}">
+                        <p style="color: red">
+                            @error('start_date')
+                            {{$message}}
+                            @enderror
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center mb-3">
+                    <div class="col-md-2">
+
+                        <label for="status">{{ __('End Date') }}</label>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="date" class="form-control input-sm" id="end_date" name="end_date" value ="{{$property->end_date}}">
+                        <p style="color: red">
+                            @error('end_date')
                             {{$message}}
                             @enderror
                         </p>

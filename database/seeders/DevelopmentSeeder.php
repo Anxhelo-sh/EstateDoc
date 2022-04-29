@@ -18,7 +18,6 @@ class DevelopmentSeeder extends Seeder
     {
         //
         $this->call(PropertySeeder::class) ;
-        $this->call(ReviewSeeder::class) ;
         $this->call(ReservationSeeder::class) ;
 
     }

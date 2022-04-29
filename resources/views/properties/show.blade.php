@@ -36,7 +36,15 @@
                     <div class="row m-1">
                         <div class="d-flex flex-row justify-content-start ">
                             <div >
-                                <a class="btn btn-primary m-1" href="{{route('properties.edit',['property'=>$property->id])}}">Update</a>
+
+                                @cannot('host')
+                                    @cannot('simple_user')
+
+                                    @auth
+                                        <a class="btn btn-primary m-1" href="{{route('properties.edit',['property'=>$property->id])}}">Update</a>
+                                    @endauth
+                                    @endcannot
+                                    @endcannot
 
                             </div>
                             <div>
@@ -45,11 +53,22 @@
                                     @csrf
 
 
-                                    <button  class="btn btn-danger m-1">Delete</button>
+                                    @cannot('host')
+                                        @cannot('simple_user')
+                                        @auth
+
+                                        <button  class="btn btn-danger m-1">Delete</button>
+                                        @endauth
+                                            @endcannot
+                                        @endcannot
                                 </form>
                             </div>
                             <div >
-                                <a class="btn btn-primary m-1" href="/reservations/create/{{$property->id}}}">Book Now </a>
+                                @cannot('host_user')
+                                    <a class="btn btn-primary m-1" href="/reservations/create/{{$property->id}}}">Book Now </a>
+
+                                @endcannot
+
 
                             </div>
 
@@ -60,6 +79,60 @@
             </div>
 
     </div>
+
+    @can('add_review',$property)
+        <div class="container  mt-2">
+
+            <form action="{{ route('reviews.store',['property'=>$property]) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="row justify-content-center mt-4 mb-2">
+                    <div class="col-md-2">
+
+                        <label for="review_score">{{ __('Review score ') }}</label>
+                    </div>
+                    <div class="col-md-6">
+
+                        <select class="form-select" id="review_score" name="review_score" aria-label="How many starts do you give us ">
+                            <option selected>{{ __('How many starts do you give us') }}</option>
+                            <option value="1" {{ old('review_score') == 1 ? 'selected' : '' }}>1</option>
+                            <option value="2"  {{ old('review_score') == 2 ? 'selected' : '' }}>2</option>
+                            <option value="3"  {{ old('review_score') == 3 ? 'selected' : '' }}>3</option>
+                            <option value="4"  {{ old('review_score') == 4 ? 'selected' : '' }}>4</option>
+                            <option value="5"  {{ old('review_score') == 5 ? 'selected' : '' }}>5</option>
+                        </select>
+                        <p style="color: red">
+                            @error('review_score')
+                            {{$message}}
+                            @enderror
+                        </p>
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-3">
+                    <div class="col-md-2">
+
+                        <label for="status">{{ __('Message') }}</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control input-sm" id="message" name="message" value="{{ old('message') }}">
+
+
+                        <p style="color: red">
+                            @error('message')
+                            {{$message}}
+                            @enderror
+                        </p>
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-3">
+                    <div class="col-md-8 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">{{ __('Add') }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        @endcan
+
+
 
 
     <h2 class="text-center mt-2" style="color: black ">Reviews</h2>
